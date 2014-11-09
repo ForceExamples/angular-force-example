@@ -1,0 +1,9 @@
+name: angularforce
+description: A sample web application
+dependencies:
+  browser: any
+  force: any
+  angular: 1.0.0
+transformers:
+- angular
+  
