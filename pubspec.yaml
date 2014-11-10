@@ -4,6 +4,7 @@ dependencies:
   browser: any
   force: any
   angular: 1.0.0
+  bigcargo: any
 transformers:
 - angular
   
