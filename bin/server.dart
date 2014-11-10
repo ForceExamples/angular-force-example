@@ -13,8 +13,6 @@ main() {
   
   // Setup logger
   fs.setupConsoleLog();
-
-  fs.server.staticFileTypes.add("map");
   
   fs.start().then((_) {
     if (fs.server.viewRender is MustacheRender) {
@@ -22,9 +20,14 @@ main() {
        mustacheRender.delimiter = new Delimiter('[[', ']]');
     }
     
+    // Construct page
     fs.server.on("/", (req, model) {
-        return "angularforce";
-      });
+       return "angularforce";
+    });
+   
+    fs.on("post", (vme, sender) {
+       fs.send("new", vme.json);
+    });
   });
   
 }

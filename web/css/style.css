@@ -1,0 +1,80 @@
+body {
+  height: 100%;
+  background-color: #F8F8F8;
+  font-family: 'Open Sans', sans-serif;
+}
+
+.post-meta {
+  color: #999;
+  font-size: 90%;
+  margin: 0;
+}
+
+.content-subhead {
+  text-transform: uppercase;
+  color: #aaa;
+  border-bottom: 1px solid #eee;
+  padding: 0.4em 0;
+  font-size: 80%;
+  font-weight: 500;
+  letter-spacing: 0.1em;
+}
+
+.content {
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 1em;
+  padding-right: 1em;
+  width: 768px;
+}
+
+.content-offset {
+  margin-top: 10px; 
+}
+
+.text-bold {
+  font-weight: bold;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.form-legend {
+  font-size: 3em;
+  font-weight: bold;
+}
+
+.well {
+  background-color: #fff;
+  padding: 1em;
+  -moz-border-radius: 3px;
+  -webkit-border-radius: 3px;
+  border-radius: 3px;
+}
+
+#chat-box {
+  position: absolute;
+  top: 1em;
+  left: 0;
+  right: 0;
+  bottom: 10em;
+  overflow: auto;
+}
+
+#input-box { 
+  clear: both;
+  text-align: center;
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 1em;
+}
+
+.ng-hide {
+  display: none;
+}
+
+[ng-cloak] {
+  display: none;
+}
