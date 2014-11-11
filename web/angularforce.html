@@ -4,37 +4,60 @@
     <title>Angular - Force (blog example)!</title>
 
     <link type="text/css" rel="stylesheet" href="css/pure-min.css">
+    <link type="text/css" rel="stylesheet" href="css/pure-responsive.css">
     <link type="text/css" rel="stylesheet" href="css/style.css">
 </head>
 <body>
     <div ng-hide="true" class="well text-center">Please wait, loading application...</div>
     
-    <div blog-app class="pure-g-r" ng-cloak>
-      <div id="blog-box" class="pure-u-1-1 well content">
-        <h1 class="content-subhead">Angular - Force (blog example)</h1>
-
-        <div class="pure-g" ng-repeat="post in blogPosts">
-          <div class="pure-u-1"><h2>{{post.title}}</h2></div>
-          <div class="pure-u-1"><div class="pure-input-1 post-meta">Blog is been posted by {{post.user}}</div></div>
-          <div class="pure-u-1"><div class="pure-input-1">{{post.body}}</div></div>
-        </div>
+    <div blog-app class="layout pure-g" ng-cloak>
+      <div class="sidebar pure-u-1 pure-u-md-1-4">
+          <div id="input-box" class="pure-u-3-4 content">
+             <form class="pure-form pure-g">
+                  <div class="pure-u-4-4">
+                    <input class="pure-input-1" ng-model="user" placeholder="User">
+                  </div>
+                  <div class="pure-u-4-4">
+                    <input class="pure-input-1" ng-model="title" placeholder="Title">
+                  </div>
+                  <div class="pure-u-4-4">
+                    <textarea cols="10" rows="3" class="pure-input-1" ng-model="body" placeholder="Body"></textarea>
+                  </div>
+                  <button class="pure-u-1-1 pure-button pure-button-primary" ng-click="submit()">add</button>
+             </form>
+             <div class="header">
+                <h1 class="brand-title">A Sample Blog</h1>
+                <h2 class="brand-tagline">Creating a blog with Angular - Force - Pure CSS</h2>
+              
+             </div>
+          </div>
       </div>
 
-      <div id="input-box" class="pure-u-1-1 content">
-        <form class="pure-form pure-g">
-          <div class="pure-u-1-4">
-            <input class="pure-input-1" ng-model="user" placeholder="User">
-          </div>
-          <div class="pure-u-3-4">
-            <input class="pure-input-1" ng-model="title" placeholder="Title">
-          </div>
-          <div class="pure-u-4-4">
-            <textarea cols="2" rows="10" class="pure-input-1" ng-model="body" placeholder="Body"></textarea>
-          </div>
-          <button class="pure-u-1-1 pure-button pure-button-primary" ng-click="submit()">add</button>
-        </form>
-      </div>
-
+      <div class="content pure-u-1 pure-u-md-3-4">
+          <div>
+              <!-- A wrapper for all the blog posts -->
+  
+              <div class="posts">
+                  <h1 class="content-subhead">Recent Posts</h1>
+                  <div class="pure-g" ng-repeat="post in blogPosts">
+                    <section class="post">
+                        <header class="post-header">
+                            <h2 class="post-title">{{post.title}}</h2>
+    
+                            <p class="post-meta">
+                                By <a class="post-author" href="#">{{post.user}}</a>
+                            </p>
+                        </header>
+    
+                        <div class="post-description">
+                            <p>{{post.body}}</p>
+                        </div>
+                    </section>
+                  </div>
+   
+                  </div>
+                </div>          
+         </div>
     </div>
     
   <script type="application/dart" src="angularforce.dart"></script>

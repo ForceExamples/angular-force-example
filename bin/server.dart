@@ -28,19 +28,19 @@ main() {
       // Tell Force what the start page is!
       fs.server.on("/", (req, model) => "angularforce");
      
-      fs.on("post", (vme, sender) {
-         cargo.add("posts", vme.json);
-         fs.send("new", vme.json);
+      fs.on("post", (fme, sender) {
+         cargo.add("posts", fme.json);
+         fs.send("new", fme.json);
       });
       
       // send saved items to the client
-      fs.onSocket.listen((SocketEvent se) {
+      fs.on("launch", (fme, sender) {
           cargo.getItem("posts").then((obj) {
             if (obj !=null && obj is List) {
               List list = obj;
               for (var item in list) {
                 // send to socket id that just connected to the server.
-                fs.sendTo(se.wsId, "new", item);
+                fs.sendTo(fme.wsId, "new", item);
               }
             } 
           });

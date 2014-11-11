@@ -37,6 +37,7 @@ class BlogComponent {
       forceClient.on("new", (e, sender) {
         blogPosts.add(new BlogPost.fromJson(e.json));
       });
+      forceClient.send("launch", {});
     });
   }
 
