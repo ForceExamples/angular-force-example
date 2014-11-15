@@ -11,7 +11,7 @@ main() {
   Cargo cargo = new Cargo(MODE: CargoMode.MONGODB, conf: {"collection": "store", "address": "mongodb://127.0.0.1/test" });
   
   // Create a force server
-  ForceServer fs = new ForceServer(port: 8080, 
+  ForceServer fs = new ForceServer(port: 4040, 
                                  clientFiles: '../build/web/');
     
   // Setup logger
@@ -26,7 +26,7 @@ main() {
       }
       
       // Tell Force what the start page is!
-      fs.server.on("/", (req, model) => "angularforce");
+      fs.server.use("/", (req, model) => "angularforce");
      
       fs.on("post", (fme, sender) {
          cargo.add("posts", fme.json);
@@ -40,7 +40,7 @@ main() {
               List list = obj;
               for (var item in list) {
                 // send to socket id that just connected to the server.
-                fs.sendTo(fme.wsId, "new", item);
+                sender.reply("new", item);
               }
             } 
           });

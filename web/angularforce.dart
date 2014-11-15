@@ -35,7 +35,7 @@ class BlogComponent {
     
     forceClient.onConnected.listen((ConnectEvent ce) {
       forceClient.on("new", (e, sender) {
-        blogPosts.add(new BlogPost.fromJson(e.json));
+        blogPosts.insert(0, new BlogPost.fromJson(e.json));
       });
       forceClient.send("launch", {});
     });
